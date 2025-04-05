@@ -36,14 +36,37 @@ class _MotorcycleEventsScreenState extends State<MotorcycleEventsScreen> with Si
           onPressed: () {},
         ),
         actions: [
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            padding: const EdgeInsets.all(5),
-            child: const Text('HP', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          // Container(
+          //   margin: const EdgeInsets.symmetric(horizontal: 10),
+          //   decoration: BoxDecoration(
+          //     color: Colors.blue,
+          //     borderRadius: BorderRadius.circular(5),
+          //   ),
+          //   padding: const EdgeInsets.all(5),
+          //   child: Image.network(
+          //     'https://play-lh.googleusercontent.com/ydAu-iZLSec-992OLo6WE1RezSTbm-IMAhxXZ6YDw9WtY4jGwqphC-HtyHyJd5sY6Q',
+          //     width: 30,
+          //     height: 30,
+          //     fit: BoxFit.contain,
+          //     errorBuilder: (context, error, stackTrace) {
+          //       return const Center(
+          //         child: Text(
+          //           'HP',
+          //           style: TextStyle(
+          //             color: Colors.white,
+          //             fontWeight: FontWeight.bold,
+          //             fontSize: 16,
+          //           ),
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
+          Image.asset(
+            'assets/images/newhp.png',
+            width: 30,
+            height: 30,
+            
           ),
           IconButton(
             icon: const Icon(Icons.notifications_outlined, color: Colors.white),
@@ -73,14 +96,15 @@ class _MotorcycleEventsScreenState extends State<MotorcycleEventsScreen> with Si
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // 8 Day Bike Trip Card
+                   
                     Container(
                       margin: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        image: const DecorationImage(
-                          image: NetworkImage("https://images.unsplash.com/photo-1608508644127-ba99d7732fee?q=80&w=1000&auto=format&fit=crop"),
+                        image: DecorationImage(
+                          image: const NetworkImage("https://images.unsplash.com/photo-1608508644127-ba99d7732fee?q=80&w=1000&auto=format&fit=crop"),
                           fit: BoxFit.cover,
+                          onError: (exception, stackTrace) => const AssetImage('assets/images/bike_trip_ladakh.jpg'),
                         ),
                       ),
                       height: 180,
@@ -156,9 +180,10 @@ class _MotorcycleEventsScreenState extends State<MotorcycleEventsScreen> with Si
                       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        image: const DecorationImage(
-                          image: NetworkImage("https://images.unsplash.com/photo-1580310614729-ccd69652491d?q=80&w=1000&auto=format&fit=crop"),
+                        image: DecorationImage(
+                          image: const NetworkImage("https://images.unsplash.com/photo-1580310614729-ccd69652491d?q=80&w=1000&auto=format&fit=crop"),
                           fit: BoxFit.cover,
+                          onError: (exception, stackTrace) => const AssetImage('assets/images/hayabusa_bike.jpg'),
                         ),
                       ),
                       height: 160,
@@ -264,10 +289,10 @@ class _MotorcycleEventsScreenState extends State<MotorcycleEventsScreen> with Si
           body: TabBarView(
             controller: _tabController,
             children: [
-              // RIDES Tab Content
+              
               ListView(
                 children: [
-                  // First Ride Card
+                  
                   RideCard(
                     image: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1000&auto=format&fit=crop",
                     title: "ride to nandi hills",
@@ -279,7 +304,7 @@ class _MotorcycleEventsScreenState extends State<MotorcycleEventsScreen> with Si
                     coRiders: "12",
                   ),
                   
-                  // Second Ride Card
+                  
                   RideCard(
                     image: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1000&auto=format&fit=crop",
                     title: "ride to cochi hills",
@@ -352,7 +377,7 @@ class _MotorcycleEventsScreenState extends State<MotorcycleEventsScreen> with Si
               ),
               
               
-              // MARKET Tab Content
+           
               ListView(
                 padding: const EdgeInsets.all(16.0),
                 children: const [
@@ -369,7 +394,7 @@ class _MotorcycleEventsScreenState extends State<MotorcycleEventsScreen> with Si
                 ],
               ),
               
-              // GARAGE Tab Content
+              
               ListView(
                 padding: const EdgeInsets.all(16.0),
                 children: const [
@@ -451,7 +476,7 @@ class RideCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image
+          
           Container(
             height: 180,
             width: double.infinity,
@@ -463,11 +488,12 @@ class RideCard extends StatelessWidget {
               image: DecorationImage(
                 image: NetworkImage(image),
                 fit: BoxFit.cover,
+                onError: (exception, stackTrace) => const AssetImage('assets/images/road_trip.jpg'),
               ),
             ),
           ),
           
-          // Title
+         
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
             child: Text(
@@ -479,13 +505,13 @@ class RideCard extends StatelessWidget {
             ),
           ),
           
-          // Rider Info and Details
+          
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Profile Circle
+               
                 CircleAvatar(
                   backgroundColor: Colors.grey.shade200,
                   radius: 20,
@@ -494,7 +520,7 @@ class RideCard extends StatelessWidget {
                 
                 const SizedBox(width: 12),
                 
-                // Rider Name and Bike
+               
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -517,7 +543,7 @@ class RideCard extends StatelessWidget {
                   ),
                 ),
                 
-                // Co-riders
+                
                 Text(
                   'Co Riders: $coRiders',
                   style: TextStyle(
@@ -529,7 +555,7 @@ class RideCard extends StatelessWidget {
             ),
           ),
           
-          // Distance, Date, Location
+         
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: Row(
